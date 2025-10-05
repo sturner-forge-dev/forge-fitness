@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkoutIndexRouteImport } from './routes/workout/index'
+import { Route as HistoryIndexRouteImport } from './routes/history/index'
+import { Route as ExerciseIndexRouteImport } from './routes/exercise/index'
+import { Route as DatabaseIndexRouteImport } from './routes/database/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo/table'
 import { Route as DemoStoreRouteImport } from './routes/demo/store'
@@ -32,6 +36,26 @@ import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ss
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkoutIndexRoute = WorkoutIndexRouteImport.update({
+  id: '/workout/',
+  path: '/workout/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryIndexRoute = HistoryIndexRouteImport.update({
+  id: '/history/',
+  path: '/history/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExerciseIndexRoute = ExerciseIndexRouteImport.update({
+  id: '/exercise/',
+  path: '/exercise/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseIndexRoute = DatabaseIndexRouteImport.update({
+  id: '/database/',
+  path: '/database/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
@@ -134,6 +158,10 @@ export interface FileRoutesByFullPath {
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/database': typeof DatabaseIndexRoute
+  '/exercise': typeof ExerciseIndexRoute
+  '/history': typeof HistoryIndexRoute
+  '/workout': typeof WorkoutIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -155,6 +183,10 @@ export interface FileRoutesByTo {
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/database': typeof DatabaseIndexRoute
+  '/exercise': typeof ExerciseIndexRoute
+  '/history': typeof HistoryIndexRoute
+  '/workout': typeof WorkoutIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -177,6 +209,10 @@ export interface FileRoutesById {
   '/demo/store': typeof DemoStoreRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/database/': typeof DatabaseIndexRoute
+  '/exercise/': typeof ExerciseIndexRoute
+  '/history/': typeof HistoryIndexRoute
+  '/workout/': typeof WorkoutIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -200,6 +236,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/database'
+    | '/exercise'
+    | '/history'
+    | '/workout'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -221,6 +261,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/database'
+    | '/exercise'
+    | '/history'
+    | '/workout'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -242,6 +286,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/table'
     | '/demo/tanstack-query'
+    | '/database/'
+    | '/exercise/'
+    | '/history/'
+    | '/workout/'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -264,6 +312,10 @@ export interface RootRouteChildren {
   DemoStoreRoute: typeof DemoStoreRoute
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  DatabaseIndexRoute: typeof DatabaseIndexRoute
+  ExerciseIndexRoute: typeof ExerciseIndexRoute
+  HistoryIndexRoute: typeof HistoryIndexRoute
+  WorkoutIndexRoute: typeof WorkoutIndexRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
@@ -284,6 +336,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workout/': {
+      id: '/workout/'
+      path: '/workout'
+      fullPath: '/workout'
+      preLoaderRoute: typeof WorkoutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history/': {
+      id: '/history/'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exercise/': {
+      id: '/exercise/'
+      path: '/exercise'
+      fullPath: '/exercise'
+      preLoaderRoute: typeof ExerciseIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/': {
+      id: '/database/'
+      path: '/database'
+      fullPath: '/database'
+      preLoaderRoute: typeof DatabaseIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/tanstack-query': {
@@ -424,6 +504,10 @@ const rootRouteChildren: RootRouteChildren = {
   DemoStoreRoute: DemoStoreRoute,
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  DatabaseIndexRoute: DatabaseIndexRoute,
+  ExerciseIndexRoute: ExerciseIndexRoute,
+  HistoryIndexRoute: HistoryIndexRoute,
+  WorkoutIndexRoute: WorkoutIndexRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTqTodosRoute: DemoApiTqTodosRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
