@@ -1,0 +1,25 @@
+{
+  "projectName": "forge-fitness",
+  "mode": "file-router",
+  "typescript": true,
+  "tailwind": true,
+  "packageManager": "npm",
+  "git": true,
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "biome",
+    "cloudflare",
+    "start",
+    "clerk",
+    "convex",
+    "db",
+    "form",
+    "tanstack-query",
+    "sentry",
+    "shadcn",
+    "store",
+    "t3env",
+    "table"
+  ]
+}
